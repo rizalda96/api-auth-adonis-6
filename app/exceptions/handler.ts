@@ -2,6 +2,8 @@ import app from '@adonisjs/core/services/app'
 import { HttpContext, ExceptionHandler } from '@adonisjs/core/http'
 import { errors } from '@vinejs/vine'
 import { errors as errorLimiter } from '@adonisjs/limiter'
+import { errors as authErrors } from '@adonisjs/auth'
+import AuthException from './auth_exception.js'
 
 export default class HttpExceptionHandler extends ExceptionHandler {
   /**
@@ -49,6 +51,22 @@ export default class HttpExceptionHandler extends ExceptionHandler {
         message: 'Error Validation'
       })
       return
+    }
+
+    if (error instanceof authErrors.E_UNAUTHORIZED_ACCESS) {
+      return ctx.response.status(error.status).send({
+        status: false,
+        data: null,
+        message: 'Error Unauthorized Access'
+      })
+    }
+
+    if (error instanceof authErrors.E_INVALID_CREDENTIALS) {
+      return ctx.response.status(error.status).send({
+        status: false,
+        data: null,
+        message: 'Error Invalid Credentials'
+      })
     }
 
     if (!this.debug) {

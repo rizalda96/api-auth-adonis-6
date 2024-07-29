@@ -1,0 +1,11 @@
+/v1/dashboard/search:
+  get:
+    tags:
+      - Dashboard
+    security:
+      - bearerAuth: []
+    summary: dashboard user.
+    description: dashboard app
+    responses:
+      200:
+        description: Success

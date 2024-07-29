@@ -1,0 +1,35 @@
+/v1/auth/login:
+  post:
+    tags:
+      - Auth
+    security: []
+      # - bearerAuth: []
+    summary: Login user.
+    description: Login to app
+    requestBody:
+      required: true
+      content:
+        application/json:
+        # application/x-www-form-urlencoded: # urlencoded gak bisa pakai example kyk di bawah, harus masuk dalam properties -> email -> example: .....
+          schema:
+            type: object
+            properties:
+              email: # <!--- form field name
+                type: string
+              password: # <!--- form field name
+                type: string
+            required:
+              - email
+              - password
+          examples:
+            Example 1:   # Example 1
+              value:
+                email: test@test.com
+                password: tes11111111
+            Example 2:   # Example 2
+              value:
+                email: test2@test.com
+                password: tes11111111
+    responses:
+      200:
+        description: Success

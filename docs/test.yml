@@ -1,4 +1,4 @@
-/api/auth/login:
+/tes:
   post:
     tags:
       - Auth

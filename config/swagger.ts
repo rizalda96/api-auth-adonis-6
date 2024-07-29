@@ -26,9 +26,8 @@ export default {
       components: {
         securitySchemes: {
           bearerAuth: {
-            type: "apiKey",
+            type: "http",
             scheme: "bearer",
-            bearerFormat: "JWT",
             in: 'header',
             name: 'Authorization',
           }
