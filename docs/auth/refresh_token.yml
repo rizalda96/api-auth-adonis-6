@@ -1,0 +1,21 @@
+/v1/auth/refresh-token:
+  post:
+    tags:
+      - Auth
+    summary: refresh token user.
+    description: refresh token to app
+    requestBody:
+      required: true
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              refresh_token: # <!--- form field name
+                type: string
+                example: eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTcyMjI0NjgwNiwiZXhwIjoxNzIyNDE5NjA2fQ.--SxqVcfc-xVrTcg0ClVGgy3uYN9fGBtGM0xzXw0mEwdTGYS1ib_45HHRnULuzUZVxW3DxkTHAE9MhpBKI0SoQ
+            required:
+              - refresh_token
+    responses:
+      200:
+        description: Success
