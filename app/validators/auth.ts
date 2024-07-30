@@ -21,9 +21,9 @@ export const loginValidator = vine.compile(
   })
 )
 
-export const forgotPasswordValidator = vine.compile(
+export const refreshTokenValidator = vine.compile(
   vine.object({
-    email: vine.string().email(),
+    refresh_token: vine.string(),
   })
 )
 

@@ -16,6 +16,7 @@ export default function authRoutes() {
   router.group(() => {
     router.post('/login', [AuthController, 'login']).as('login') // final name - v1.auth.login
     router.post('/register', [AuthController, 'register']).as('register')
+    router.post('/refresh-token', [AuthController, 'refreshToken']).as('refresh-token')
     router.post('/logout', [AuthController, 'logout']).as('logout').use(middleware.auth())
   })
   .prefix('auth')
